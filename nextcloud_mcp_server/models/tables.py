@@ -71,8 +71,10 @@ class Table(BaseModel):
     id: int = Field(description="Table ID")
     title: str = Field(description="Table title")
     emoji: Optional[str] = Field(None, description="Table emoji")
-    ownership: str = Field(description="Table ownership")
-    owner_display_name: str = Field(description="Display name of table owner")
+    ownership: str | None = Field(None, description="Table ownership")
+    owner_display_name: str | None = Field(
+        None, description="Display name of table owner"
+    )
     created_by: Optional[str] = Field(None, description="User who created the table")
     created_at: Optional[str] = Field(None, description="Table creation timestamp")
     last_edit_by: Optional[str] = Field(
