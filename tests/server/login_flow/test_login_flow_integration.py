@@ -506,10 +506,6 @@ class TestLoginFlowDeck:
 class TestLoginFlowTables:
     """Test Tables operations via Login Flow v2."""
 
-    @pytest.mark.xfail(
-        reason="Server-side Pydantic bug: Table.owner_display_name required but missing from API",
-        strict=False,
-    )
     async def test_tables_list(self, nc_mcp_login_flow_client: ClientSession):
         """List tables (may be empty but should not error)."""
         result = await nc_mcp_login_flow_client.call_tool("nc_tables_list_tables", {})
